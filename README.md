@@ -1,3 +1,4 @@
+- Project su dung C++20 va SDL2
 - su dung visual studio de chay code
 - tai thu vien sdl2 tai link: https://github.com/libsdl-org/SDL/releases/download/release-2.24.1/SDL2-devel-2.24.1-VC.zip
 - de co the su dung cac ham cua sdl2:
