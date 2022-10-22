@@ -28,11 +28,19 @@ void render(int i, int j) {
 }
 
 void genNums() {
+	int temp = speed;
+	speed = 10;
 	for (int i = 1; i <= 99; i++) {
 		nums.push_back(i);
 	}
-	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-	std::shuffle(nums.begin(), nums.end(), std::default_random_engine(seed));
+	for (int i = 1; i <= 30; i++) {
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::shuffle(nums.begin(), nums.end(), std::default_random_engine(seed));
+		render(-1, -1);
+		SDL_Delay(10);
+	}
+	speed = temp;
+	SDL_Delay(1000);
 }
 
 void draw_array(unsigned int i, unsigned int j, bool oki) {
@@ -232,7 +240,6 @@ int main() {
 		int selector = renderSelectionForConsole();
 		nums.clear();
 		genNums();
-		draw_array(-1, -1);
 		if (selector == 1) {
 			draw_selectionSort();
 			system("pause");
